@@ -1,0 +1,54 @@
+{
+  "position": "top",
+  "modules-left": ["custom/menu", "sway/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "pulseaudio", "backlight", "custom/power"],
+
+  "sway/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "urgent": "",
+      "focused": ""
+    }
+  },
+
+  "custom/menu": {
+    "format": "",
+    "on-click": "rofi -show drun",
+    "tooltip": false
+  },
+
+  "clock": {
+    "format": " {:%a %d %I:%M %p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰤭 Disconnected",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "  Disconnected",
+    "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
+  },
+
+  "pulseaudio": {
+    "tooltip": false,
+    "on-click": "pamixer --toggle-mute",
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "format-icons": " "
+  },
+
+  "backlight": {
+    "tooltip": false,
+    "format": "{icon} {percent}%",
+    "format-icons": ""
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false
+  }
+}
+

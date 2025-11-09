@@ -1,0 +1,122 @@
+configuration {
+    modi:                       "drun";
+    display-drun:               "";
+    drun-display-format:        "{name}";
+}
+
+* {
+    background:                 #1E1D2FFF;
+    background-alt:             #282839FF;
+    foreground:                 #D9E0EEFF;
+    selected:                   #7AA2F7FF;
+    active:                     #ABE9B3FF;
+    urgent:                     #F28FADFF;
+
+    font:                       "JetBrains Mono Nerd Font 9";
+
+    border-colour:             var(selected);
+    handle-colour:             var(selected);
+    background-colour:         var(background);
+    foreground-colour:         var(foreground);
+    alternate-background:      var(background-alt);
+
+    normal-background:         var(background);
+    normal-foreground:         var(foreground);
+
+    urgent-background:         var(urgent);
+    urgent-foreground:         var(background);
+
+    active-background:         var(active);
+    active-foreground:         var(background);
+
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(background);
+
+    selected-urgent-background:  var(active);
+    selected-urgent-foreground:  var(background);
+
+    selected-active-background:  var(urgent);
+    selected-active-foreground:  var(background);
+
+    alternate-normal-background: var(background);
+    alternate-normal-foreground: var(foreground);
+
+    alternate-urgent-background: var(urgent);
+    alternate-urgent-foreground: var(background);
+
+    alternate-active-background: var(active);
+    alternate-active-foreground: var(background);
+}
+
+/* Window settings */
+window {
+    width:                     600px;
+    border:                    0px;
+    border-radius:             10px;
+    background-color:          #1E1D2FFF;
+}
+
+/* Main container */
+mainbox {
+    spacing:                   10px;
+    padding:                   20px;
+    children:                  [ "inputbar", "message", "listview" ];
+}
+
+/* Search bar */
+inputbar {
+    spacing:                   12px;
+    text-color:                #D9E0EEFF;
+    children:                  [ "textbox-prompt-colon", "entry", "mode-switcher" ];
+}
+
+/* Search icon */
+textbox-prompt-colon {
+    padding:                   0 8px;
+    expand:                    false;
+    str:                       "";
+    vertical-align:            0.5;
+}
+
+/* Search input */
+entry {
+    padding:                   5px 0;
+    margin:                    5px 0;
+    cursor:                    text;
+    placeholder:               "Search...";
+    placeholder-color:         inherit;
+}
+
+/* Result list */
+listview {
+    columns:                   1;
+    lines:                     8;
+    cycle:                     true;
+    dynamic:                   true;
+    scrollbar:                 true;
+    layout:                    vertical;
+    reverse:                   false;
+    fixed-height:              true;
+    fixed-columns:             true;
+
+    spacing:                   5px;
+    border:                    0px;
+    cursor:                    "default";
+}
+
+/* Scrollbar style */
+scrollbar {
+    handle-width:              5px;
+    handle-color:              #7AA2F7FF;
+    border-radius:             10px;
+    background-color:          #282839FF;
+}
+
+/* List elements */
+element {
+    spacing:                   10px;
+    padding:                   5px 10px;
+    border-radius:             5px;
+    cursor:                    pointer;
+}
+
