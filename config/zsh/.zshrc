@@ -10,9 +10,6 @@ zstyle ':omz:update' mode disabled
 # plugins
 plugins=(git)
 
-# flutter
-export PATH="$PATH:$HOME/dev/flutter/bin"
-
 # flutter, but for android
 export ANDROID=$HOME/dev/android
 export PATH=$ANDROID/latest/cmdline-tools:$PATH

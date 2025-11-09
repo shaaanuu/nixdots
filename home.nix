@@ -69,7 +69,9 @@ in
     usbmuxd
     libplist
 
+    # unstable
     inputs.zen-browser.packages."${system}".default
+    inputs.nixpkgs-unstable.legacyPackages."${system}".flutter
   ];
  
   # for in ~/.configs/
