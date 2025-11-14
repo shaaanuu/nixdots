@@ -33,6 +33,7 @@ in
     neovim
     xfce.thunar
     xfce.thunar-volman
+    xfce.mousepad
     zsh
     oh-my-zsh
     labwc
