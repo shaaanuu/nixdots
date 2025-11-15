@@ -9,6 +9,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    #silentSDDM = {
+    #  url = "github:uiriansan/SilentSDDM";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
   outputs =
@@ -21,7 +25,10 @@
       homeConfigurations."shaaanuu" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; system = "x86_64-linux"; };
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          # ./modules/sddm/sddm.nix
+        ];
       };
     };
 }
