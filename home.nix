@@ -13,6 +13,7 @@ let
     mako = "mako";
     neovim = "nvim";
     yazi = "yazi";
+    labwc = "labwc";
   };
 in
 

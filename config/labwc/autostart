@@ -1,0 +1,17 @@
+# wallpaper
+swaybg -o '*' -i ~/.config/labwc/pixels.png -m fill >/dev/null 2>&1 &
+
+# waybar
+waybar --config ~/.config/waybar/labwc/config.jsonc --style ~/.config/waybar/labwc/style.css &
+
+# Configure output directives such as mode, position, scale and transform.
+# Use wlr-randr to get your output names
+# Example ~/.config/kanshi/config below:
+#   profile {
+#     output HDMI-A-1 position 1366,0
+#     output eDP-1 position 0,0
+#   }
+kanshi >/dev/null 2>&1 &
+
+# Enable notification daemon.
+mako >/dev/null 2>&1 &

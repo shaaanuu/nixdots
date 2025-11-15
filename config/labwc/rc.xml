@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<labwc_config>
+
+  <theme>
+    <cornerRadius>8</cornerRadius>
+    <font name="JetBrainsMono Nerd Font" size="10"/>
+  </theme>
+
+  <keyboard>
+    <default/>
+
+    <!-- Super (on release) → Rofi -->
+    <keybind key="Super_L" onRelease="yes">
+      <action name="Execute" command="rofi -show drun"/>
+    </keybind>
+
+    <!-- Super+Enter → Alacritty -->
+    <keybind key="W-Return">
+      <action name="Execute" command="alacritty"/>
+    </keybind>
+
+    <!-- Disable Super+F4 -->
+    <keybind key="W-F4">
+      <action name="None"/>
+    </keybind>
+  </keyboard>
+
+  <mouse>
+    <default/>
+
+    <context name="Root">
+      <mousebind button="Left" action="Press">
+        <action name="None"/>
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="ShowMenu" menu="some-custom-menu"/>
+      </mousebind>
+    </context>
+  </mouse>
+
+</labwc_config>
+
