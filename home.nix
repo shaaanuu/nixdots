@@ -1,17 +1,18 @@
 { config, pkgs, system, inputs, ... }:
 
 let
-  dots = "${config.home.homeDirectory}/nixdots/config";
+  # dots = "${config.home.homeDirectory}/nixdots/config";
+  dots = "/etc/nixos/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
   configs = {
     alacritty = "alacritty";
     sway = "sway";
     waybar = "waybar";
-    rofi-wayland = "rofi";
+    rofi = "rofi";
     fastfetch = "fastfetch";
     mako = "mako";
-    neovim = "nvim";
+    nvim = "nvim";
     yazi = "yazi";
     labwc = "labwc";
   };
@@ -20,12 +21,11 @@ in
 {
   home.username = "shaaanuu";
   home.homeDirectory = "/home/shaaanuu";
+  programs.git.enable = true;
   home.stateVersion = "25.05";
-  nixpkgs.config.allowUnfree = true;
+  programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    swayfx
-    waybar
     rofi-wayland
     yazi
     alacritty
@@ -35,15 +35,12 @@ in
     xfce.thunar
     xfce.thunar-volman
     xfce.mousepad
-    zsh
-    oh-my-zsh
+    xfce.tumbler
+    xfce.ristretto
+    feh
     labwc
     nwg-look
     gcc
-    nerd-fonts.jetbrains-mono
-    pipewire
-    wireplumber
-    pavucontrol
     fontconfig
     noto-fonts-emoji
     noto-fonts
@@ -54,7 +51,6 @@ in
     vlc
     xarchiver
     jdk17
-    xfce.tumbler
     gvfs
     file-roller
     unzip
@@ -66,25 +62,37 @@ in
     bluez
     bluez-tools
     networkmanager
-    libimobiledevice
-    ifuse
-    usbmuxd
     libplist
+    libnotify
 
     # unstable
     inputs.zen-browser.packages."${system}".default
     inputs.nixpkgs-unstable.legacyPackages."${system}".flutter
   ];
- 
+
   # for in ~/.configs/
   xdg.configFile = builtins.mapAttrs (name: subpath: {
-    source = create_symlink  "${dots}/${subpath}";
+    source = create_symlink "${dots}/${subpath}";
     recursive = true;
   }) configs;
 
   # exceptions
-  home.file.".zshrc".source = create_symlink "${dots}/zsh/.zshrc";
-  home.file.".oh-my-zsh".source = create_symlink "${dots}/zsh/.oh-my-zsh";
+  home.file.".local/share/oh-my-zsh/custom/themes/spiderverse.zsh-theme".source = create_symlink "${dots}/zsh/spiderverse.zsh-theme";
 
-  programs.home-manager.enable = true;
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "spiderverse";
+    };
+    shellAliases = {
+      update = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
+      shutdown = "sudo shutdown now";
+      restart = "sudo reboot now";
+      reboot = "sudo reboot now";
+      snvim = "sudo -E nvim";
+      clean = "sudo nix-collect-garbage -d";
+    };
+    sessionVariables.ZSH_CUSTOM = ".local/share/oh-my-zsh/custom";
+  };
 }

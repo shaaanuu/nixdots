@@ -1,5 +1,5 @@
 {
-  description = "I use nix, btw";
+  description = "I use nix, btw...!";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.05";
@@ -9,26 +9,34 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #silentSDDM = {
-    #  url = "github:uiriansan/SilentSDDM";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    silentSDDM = {
+      url = "github:uiriansan/SilentSDDM";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    { nixpkgs, home-manager, zen-browser, ... } @ inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations."shaaanuu" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit inputs; system = "x86_64-linux"; };
-        modules = [
-          ./home.nix
-          # ./modules/sddm/sddm.nix
-        ];
-      };
+  outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, ... }:
+  let
+    system = "x86_64-linux";
+  in
+  {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = system;
+      modules = [
+        ./configuration.nix
+        ./modules/sddm.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.shaaanuu = import ./home.nix;
+            backupFileExtension = "backup";
+            extraSpecialArgs = { inherit inputs; system = system; };
+          };
+        }
+      ];
+      specialArgs = { inherit inputs; };
     };
+  };
 }

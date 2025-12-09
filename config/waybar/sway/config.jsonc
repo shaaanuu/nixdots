@@ -2,7 +2,7 @@
   "position": "top",
   "modules-left": ["custom/menu", "sway/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["network", "pulseaudio", "backlight", "custom/power"],
+  "modules-right": ["network", "backlight", "custom/power"],
 
   "sway/workspaces": {
     "format": "{icon}",
@@ -32,13 +32,13 @@
     "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
   },
 
-  "pulseaudio": {
-    "tooltip": false,
-    "on-click": "pamixer --toggle-mute",
-    "format": "{icon} {volume}%",
-    "format-muted": " Muted",
-    "format-icons": " "
-  },
+  // "pulseaudio": {
+  //   "tooltip": false,
+  //   "on-click": "pamixer --toggle-mute",
+  //   "format": "{icon} {volume}%",
+  //   "format-muted": " Muted",
+  //   "format-icons": " "
+  // },
 
   "backlight": {
     "tooltip": false,

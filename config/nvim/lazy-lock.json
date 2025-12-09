@@ -1,11 +1,11 @@
 {
-  "catppuccin": { "branch": "main", "commit": "234fc048de931a0e42ebcad675bf6559d75e23df" },
+  "catppuccin": { "branch": "main", "commit": "ce4a8e0d5267e67056f9f4dcf6cb1d0933c8ca00" },
   "dashboard-nvim": { "branch": "master", "commit": "0775e567b6c0be96d01a61795f7b64c1758262f6" },
-  "gitsigns.nvim": { "branch": "main", "commit": "20ad4419564d6e22b189f6738116b38871082332" },
+  "gitsigns.nvim": { "branch": "main", "commit": "684270f22364bd248fcedd51598b6433266fdc47" },
   "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
   "nvim-web-devicons": { "branch": "master", "commit": "8dcb311b0c92d460fac00eac706abd43d94d68af" },
-  "render-markdown.nvim": { "branch": "main", "commit": "060c911c62f995a9db4467dde6fafd699cf94d55" },
-  "typr": { "branch": "main", "commit": "bdd9ef7143702851edd1dac85101e0a537056d2f" },
+  "render-markdown.nvim": { "branch": "main", "commit": "6e0e8902dac70fecbdd8ce557d142062a621ec38" },
+  "typr": { "branch": "main", "commit": "584e4ef34dea25a4035627794322f315b22d1253" },
   "volt": { "branch": "main", "commit": "620de1321f275ec9d80028c68d1b88b409c0c8b1" }
 }
