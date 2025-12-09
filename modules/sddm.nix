@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 
 let
-  bg = pkgs.runCommand "bg" { } "install -Dm644 ${./wall.jpg} $out";
+  bg = pkgs.runCommand "bg" { } "install -Dm644 ${../wall.jpg} $out";
 
   sddm-theme = inputs.silentSDDM.packages.${pkgs.system}.default.override {
     theme = "default";

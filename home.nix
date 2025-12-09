@@ -1,7 +1,6 @@
 { config, pkgs, system, inputs, ... }:
 
 let
-  # dots = "${config.home.homeDirectory}/nixdots/config";
   dots = "/etc/nixos/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
@@ -87,12 +86,17 @@ in
     };
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
+      clean = "sudo nix-collect-garbage -d";
       shutdown = "sudo shutdown now";
       restart = "sudo reboot now";
       reboot = "sudo reboot now";
       snvim = "sudo -E nvim";
-      clean = "sudo nix-collect-garbage -d";
     };
     sessionVariables.ZSH_CUSTOM = ".local/share/oh-my-zsh/custom";
+  };
+
+  programs.waybar = {
+    enable = true;
+    package = pkgs.waybar;
   };
 }

@@ -1,6 +1,13 @@
 # super as mod
 set $mod Mod4
 
+# fix portals/gtk slowness
+include /etc/sway/config.d/*
+
+# announce a running sway session to systemd
+exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 # Start the wlroots portal so file‑dialogs work
 exec --no-startup-id systemctl --user start xdg-desktop-portal-wlr.service
 
