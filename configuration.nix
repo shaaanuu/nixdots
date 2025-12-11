@@ -78,8 +78,8 @@ in
 
   networking.hostName = "nixos";
   # Pick only one of the below networking options.
-  networking.wireless.enable = true;
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  # networking.wireless.enable = true;
+  networking.networkmanager.enable = true;
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
@@ -134,7 +134,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shaaanuu = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ];
     packages = with pkgs; [
       tree
     ];
