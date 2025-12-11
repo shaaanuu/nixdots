@@ -65,13 +65,14 @@ in
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
 
-  # Use the GRUB 2 boot loader.
+  # Boot
   boot.loader.grub.enable = true;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.timeoutStyle = "hidden";
+  boot.loader.timeout = 0;
+  boot.initrd.verbose = false;
+  boot.consoleLogLevel = 0;
+  boot.kernelParams = [ "quiet" "udev.log_priority=3" ];
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
