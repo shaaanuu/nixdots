@@ -36,6 +36,7 @@ in
     xfce.mousepad
     xfce.tumbler
     xfce.ristretto
+    xfce.thunar-archive-plugin
     feh
     labwc
     nwg-look

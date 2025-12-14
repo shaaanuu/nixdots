@@ -8,6 +8,7 @@ in
   imports = [ ./hardware-configuration.nix ];
 
   nixpkgs.config.allowUnfree = true;
+  programs.nix-ld.enable = true;
 
   # sway stuffs...
   hardware.bluetooth.enable = true;
@@ -94,6 +95,8 @@ in
     ifuse
     catppuccin-gtk
     capitaine-cursors
+    mesa
+    libglvnd
   ] ++ [
     unstable.swayfx
   ];
