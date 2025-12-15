@@ -32,7 +32,7 @@ let
 in 
 
 {
-  environment.systemPackages = [sddm-theme sddm-theme.test];
+  environment.systemPackages = [ sddm-theme sddm-theme.test pkgs.bibata-cursors ];
    qt.enable = true;
    services.displayManager.sddm = {
       package = pkgs.lib.mkDefault pkgs.kdePackages.sddm; 
@@ -44,6 +44,10 @@ in
           GreeterEnvironment = "QML2_IMPORT_PATH=${sddm-theme}/share/sddm/themes/${sddm-theme.pname}/components/,QT_IM_MODULE=qtvirtualkeyboard";
           InputMethod = "qtvirtualkeyboard";
         };
+      Theme = {
+        CursorTheme = "Bibata-Modern-Classic";
+        CursorSize = 20;
+      };
       };
    };
 }

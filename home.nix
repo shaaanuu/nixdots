@@ -124,8 +124,8 @@ in
       };
     };
     cursorTheme = {
-      name = "capitaine-cursors";
-      package = pkgs.capitaine-cursors;
+      name = "Bibata Cursors";
+      package = pkgs.bibata-cursors;
     };
     gtk3 = {
       extraConfig.gtk-application-prefer-dark-theme = true;
@@ -135,8 +135,8 @@ in
   # Cursor
   home.pointerCursor = {
     gtk.enable = true;
-    name = "capitaine-cursors";
-    package = pkgs.capitaine-cursors;
-    size = 16;
+    name = "Bibata Cursors";
+    package = pkgs.bibata-cursors;
+    size = 24;
   };
 }
