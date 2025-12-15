@@ -1,4 +1,4 @@
-{ config, pkgs, system, inputs, ... }:
+{ config, pkgs, lib, system, inputs, ... }:
 
 let
   dots = "/etc/nixos/config";
@@ -65,6 +65,10 @@ in
     libplist
     libnotify
 
+    # theme
+    libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qt5ct
+
     # unstable
     inputs.zen-browser.packages."${system}".default
     inputs.nixpkgs-unstable.legacyPackages."${system}".flutter
@@ -99,5 +103,40 @@ in
   programs.waybar = {
     enable = true;
     package = pkgs.waybar;
+  };
+
+  # GTK
+  gtk = {
+    enable = true;
+    theme = {
+      name = "catppuccin-mocha-blue-standard";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "blue" ];
+        size = "standard";
+        variant = "mocha";
+      };
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "blue";
+      };
+    };
+    cursorTheme = {
+      name = "capitaine-cursors";
+      package = pkgs.capitaine-cursors;
+    };
+    gtk3 = {
+      extraConfig.gtk-application-prefer-dark-theme = true;
+    };
+  };
+
+  # Cursor
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "capitaine-cursors";
+    package = pkgs.capitaine-cursors;
+    size = 16;
   };
 }

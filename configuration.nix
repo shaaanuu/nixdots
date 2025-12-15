@@ -9,6 +9,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
   programs.nix-ld.enable = true;
+  home-manager.backupFileExtension = "backup";
 
   # sway stuffs...
   hardware.bluetooth.enable = true;
@@ -93,8 +94,6 @@ in
     git
     libimobiledevice
     ifuse
-    catppuccin-gtk
-    capitaine-cursors
     mesa
     libglvnd
   ] ++ [
