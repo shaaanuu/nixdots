@@ -5,7 +5,10 @@ let
 in
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./modules/swaycut.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
   programs.nix-ld.enable = true;
@@ -69,6 +72,8 @@ in
 
   # ios stuffs
   services.usbmuxd.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
 
   # Audio
   services.pipewire = {
@@ -98,6 +103,14 @@ in
     libglvnd
   ] ++ [
     unstable.swayfx
+  ];
+
+  # Thunar
+  programs.thunar.enable = true;
+  services.tumbler.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+    thunar-volman
   ];
 
   # Fonts

@@ -31,12 +31,7 @@ in
     fastfetch
     mako
     neovim
-    xfce.thunar
-    xfce.thunar-volman
     xfce.mousepad
-    xfce.tumbler
-    xfce.ristretto
-    xfce.thunar-archive-plugin
     feh
     labwc
     nwg-look
