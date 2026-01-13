@@ -2,11 +2,11 @@
   description = "I use nix, btw...!";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05";
+    nixpkgs.url = "nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     silentSDDM = {
@@ -32,7 +32,7 @@
             useUserPackages = true;
             users.shaaanuu = import ./home.nix;
             backupFileExtension = "backup";
-            extraSpecialArgs = { inherit inputs; system = system; };
+            extraSpecialArgs = { inherit inputs; };
           };
         }
       ];

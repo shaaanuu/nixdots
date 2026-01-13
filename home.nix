@@ -1,4 +1,4 @@
-{ config, pkgs, lib, system, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 let
   dots = "/etc/nixos/config";
@@ -25,7 +25,7 @@ in
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    rofi-wayland
+    rofi
     yazi
     alacritty
     fastfetch
@@ -37,7 +37,7 @@ in
     nwg-look
     gcc
     fontconfig
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     noto-fonts
     vscodium
     localsend
@@ -65,8 +65,8 @@ in
     libsForQt5.qt5ct
 
     # unstable
-    inputs.zen-browser.packages."${system}".default
-    inputs.nixpkgs-unstable.legacyPackages."${system}".flutter
+    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
+    inputs.nixpkgs-unstable.legacyPackages."${pkgs.stdenv.hostPlatform.system}".flutter
   ];
 
   # for in ~/.configs/

@@ -1,13 +1,13 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
+  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/swaycut.nix
+    # ./modules/swaycut.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
