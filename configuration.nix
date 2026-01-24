@@ -101,6 +101,11 @@ in
     ifuse
     mesa
     libglvnd
+    # python
+    (python3.withPackages (python-pkgs: with python-pkgs; [
+      yt-dlp
+      ffmpeg
+    ]))
   ] ++ [
     unstable.swayfx
   ];
