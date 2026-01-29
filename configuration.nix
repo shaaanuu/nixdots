@@ -33,6 +33,14 @@ in
     ];
   };
 
+  # electron issues
+  programs.dconf.enable = true;
+  environment.sessionVariables = {
+    XCURSOR_THEME = "Bibata Cursors";
+    XCURSOR_SIZE = "24";
+    NIXOS_OZONE_WL = "1";
+  };
+
   # sddm
   services.displayManager.sddm = {
     enable = true;
