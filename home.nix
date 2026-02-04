@@ -92,7 +92,13 @@ in
       reboot = "sudo reboot now";
       snvim = "sudo -E nvim";
     };
-    sessionVariables.ZSH_CUSTOM = ".local/share/oh-my-zsh/custom";
+    sessionVariables = {
+      ZSH_CUSTOM = ".local/share/oh-my-zsh/custom";
+    };
+    initContent = ''
+      export BUN_INSTALL="$HOME/.bun"
+      export PATH="$BUN_INSTALL/bin:$PATH"
+    '';
   };
 
   programs.waybar = {
