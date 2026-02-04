@@ -14,11 +14,15 @@ exec --no-startup-id systemctl --user start xdg-desktop-portal-wlr.service
 # Cursor
 seat seat0 xcursor_theme Bibata-Modern-Classic 20
 
-# tap with touchpad
+# touchpad
 input "type:touchpad" {
   dwt enabled
   tap enabled
   middle_emulation enabled
+  natural_scroll enabled
+  scroll_factor 0.4
+  pointer_accel 0.25
+  drag_lock disabled
 }
 
 # blur
