@@ -93,7 +93,7 @@ in
       snvim = "sudo -E nvim";
     };
     sessionVariables = {
-      ZSH_CUSTOM = ".local/share/oh-my-zsh/custom";
+      ZSH_CUSTOM = "${config.home.homeDirectory}/.local/share/oh-my-zsh/custom";
     };
     initContent = ''
       export BUN_INSTALL="$HOME/.bun"
