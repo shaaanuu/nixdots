@@ -129,8 +129,12 @@ in
       package = pkgs.bibata-cursors;
     };
     gtk3 = {
-      extraConfig.gtk-application-prefer-dark-theme = true;
+      extraConfig = {
+        gtk-application-prefer-dark-theme = true;
+        gtk-recent-files-limit = 0;
+      };
     };
+    gtk4.extraConfig.gtk-recent-files-limit = 0;
   };
 
   # Cursor
