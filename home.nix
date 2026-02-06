@@ -140,4 +140,10 @@ in
     package = pkgs.bibata-cursors;
     size = 24;
   };
+
+  # xdg-user-dirs
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+  };
 }

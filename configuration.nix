@@ -101,6 +101,7 @@ in
 
   # packages in system profile.
   environment.systemPackages = with pkgs; [
+    xdg-user-dirs
     vim
     wget
     alacritty
