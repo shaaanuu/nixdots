@@ -110,6 +110,7 @@ in
     ifuse
     mesa
     libglvnd
+    nodejs
 
     # python
     (python3.withPackages (python-pkgs: with python-pkgs; [
