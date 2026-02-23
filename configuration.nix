@@ -114,6 +114,7 @@ in
 
     # python
     (python3.withPackages (python-pkgs: with python-pkgs; [
+      pip
       yt-dlp
       ffmpeg
     ]))
