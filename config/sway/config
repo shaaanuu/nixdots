@@ -69,7 +69,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec foot
 
 # kill focused window
 bindsym $mod+q kill

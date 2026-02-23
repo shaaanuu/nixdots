@@ -5,7 +5,7 @@ let
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
   configs = {
-    alacritty = "alacritty";
+    foot = "foot";
     sway = "sway";
     waybar = "waybar";
     rofi = "rofi";
@@ -27,7 +27,6 @@ in
   home.packages = with pkgs; [
     rofi
     yazi
-    alacritty
     fastfetch
     mako
     neovim

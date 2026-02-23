@@ -104,7 +104,7 @@ in
     xdg-user-dirs
     vim
     wget
-    alacritty
+    foot
     git
     libimobiledevice
     ifuse
