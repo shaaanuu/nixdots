@@ -36,16 +36,12 @@ in
   # electron issues
   programs.dconf.enable = true;
   environment.sessionVariables = {
-    XCURSOR_THEME = "Bibata Cursors";
-    XCURSOR_SIZE = "24";
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    XCURSOR_SIZE = "20";
     NIXOS_OZONE_WL = "1";
   };
 
-  # sddm
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
+  # greeter
   systemd.tmpfiles.rules = let
     user = "shaaanuu";
     iconPath = ./avatar;

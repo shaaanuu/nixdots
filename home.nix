@@ -124,7 +124,7 @@ in
       };
     };
     cursorTheme = {
-      name = "Bibata Cursors";
+      name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
     };
     gtk3 = {
@@ -139,9 +139,9 @@ in
   # Cursor
   home.pointerCursor = {
     gtk.enable = true;
-    name = "Bibata Cursors";
+    name = "Bibata-Modern-Classic";
     package = pkgs.bibata-cursors;
-    size = 24;
+    size = 20;
   };
 
   # xdg-user-dirs
