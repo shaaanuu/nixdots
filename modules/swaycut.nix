@@ -9,19 +9,29 @@ let
       owner = "shaaanuu";
       repo = "swaycut";
       rev = "main";
-      sha256 = lib.fakeSha256; # will replace, i guess...
+      sha256 = "1x1scbg5r5ig839als6swq73s4xi4db80cala54a97v6h4bi6gg3";
     };
 
     dontBuild = true;
 
     installPhase = ''
-      install -Dm755 swaycut $out/bin/swaycut
-      install -Dm644 LICENSE $out/share/licenses/swaycut/LICENSE
+      mkdir -p $out/bin
+      cp swaycut $out/bin/swaycut
+      chmod +x $out/bin/swaycut
     '';
 
-    propagatedBuildInputs = [ pkgs.grim pkgs.slurp pkgs.jq pkgs.wl-clipboard pkgs.imagemagick pkgs.libnotify ];
+    postPatch = ''
+      substituteInPlace swaycut \
+        --replace slurp ${pkgs.slurp}/bin/slurp \
+        --replace grim ${pkgs.grim}/bin/grim \
+        --replace jq ${pkgs.jq}/bin/jq \
+        --replace wl-copy ${pkgs.wl-clipboard}/bin/wl-copy \
+        --replace magick ${pkgs.imagemagick}/bin/magick \
+        --replace notify-send ${pkgs.libnotify}/bin/notify-send
+    '';
   };
 in {
   environment.systemPackages = [ swaycut ];
 }
+
 

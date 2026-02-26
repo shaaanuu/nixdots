@@ -7,7 +7,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    # ./modules/swaycut.nix
+    ./modules/swaycut.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
