@@ -8,6 +8,7 @@ in
   imports = [
     ./hardware-configuration.nix
     ./modules/swaycut.nix
+    ./modules/postgresql.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
