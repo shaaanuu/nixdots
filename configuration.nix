@@ -111,6 +111,7 @@ in
     libglvnd
     nodejs
     yt-dlp
+    libreoffice-fresh
 
     # python
     (python3.withPackages (python-pkgs: with python-pkgs; [
@@ -133,6 +134,7 @@ in
   # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    corefonts
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
