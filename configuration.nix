@@ -73,6 +73,18 @@ in
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
+  networking.networkmanager.dns = "none";
+  networking.nameservers = [ "9.9.9.9" "149.112.112.112" "1.1.1.1" ];
+  nix.settings = {
+    substituters = [
+      "https://mirror.sjtu.edu.cn/nix-channels/store"
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://cache.nixos.org"
+    ];
+    http-connections = 128;
+    max-substitution-jobs = 128;
+    max-jobs = "auto";
+  };
 
   # Time zone.
   time.timeZone = "Asia/Kolkata";
