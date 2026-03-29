@@ -124,6 +124,7 @@ in
     nodejs
     yt-dlp
     libreoffice-fresh
+    atomicparsley
 
     # python
     (python3.withPackages (python-pkgs: with python-pkgs; [
