@@ -18,6 +18,10 @@ let
 in
 
 {
+  imports = [
+    ./modules/zen.nix
+  ];
+
   home.username = "shaaanuu";
   home.homeDirectory = "/home/shaaanuu";
   programs.git.enable = true;
@@ -64,7 +68,6 @@ in
     libsForQt5.qt5ct
 
     # unstable
-    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
     inputs.nixpkgs-unstable.legacyPackages."${pkgs.stdenv.hostPlatform.system}".flutter
   ];
 
