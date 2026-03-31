@@ -54,6 +54,21 @@
       search = {
         default = "ddg";
         privateDefault = "ddg";
+        force = true;
+        engines = {
+          "ddg" = {
+            urls = [{ template = "https://duckduckgo.com/?q={searchTerms}"; }];
+            definedAliases = [ "@ddg" "@duck" ];
+          };
+          "nix" = {
+            urls = [{ template = "https://search.nixos.org/packages?query={searchTerms}"; }];
+            definedAliases = [ "@nix" ];
+          };
+          "wikipedia" = {
+            urls = [{ template = "https://en.wikipedia.org/w/index.php?search={searchTerms}"; }];
+            definedAliases = [ "@w" "@wiki" ];
+          };
+        };
       };
 
       extraConfig = ''
