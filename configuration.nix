@@ -16,6 +16,19 @@ in
   programs.nix-ld.enable = true;
   home-manager.backupFileExtension = "backup";
 
+  # CPU performance scaling
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+    };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };
+
   # sway stuffs...
   hardware.bluetooth.enable = true;
   programs.sway.enable = true;
@@ -125,6 +138,9 @@ in
     yt-dlp
     libreoffice-fresh
     atomicparsley
+    cmake
+    aria2
+    btop
 
     # python
     (python3.withPackages (python-pkgs: with python-pkgs; [
