@@ -150,6 +150,7 @@ in
     ]))
   ] ++ [
     unstable.swayfx
+    unstable.python3Packages.django_6
   ];
 
   # Thunar
