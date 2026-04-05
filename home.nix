@@ -13,7 +13,6 @@ let
     mako = "mako";
     nvim = "nvim";
     yazi = "yazi";
-    labwc = "labwc";
   };
 in
 
@@ -36,7 +35,6 @@ in
     neovim
     xfce.mousepad
     feh
-    labwc
     nwg-look
     gcc
     fontconfig
