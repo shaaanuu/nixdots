@@ -23,7 +23,7 @@
   "network": {
     "format-wifi": "",
     "format-ethernet": "",
-    "format-linked": " {ifname}",
+    "format-linked": "",
     "format-disconnected": "",
     "tooltip-format-wifi": " {essid} {signalStrength}%",
     "tooltip-format": " {ifname}",
