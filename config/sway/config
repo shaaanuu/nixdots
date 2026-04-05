@@ -28,7 +28,6 @@ input "type:touchpad" {
 # blur
 blur enable
 blur_radius 1
-layer_effects "waybar" blur enable
 
 # rounded corners
 corner_radius 10
@@ -56,7 +55,7 @@ exec_always mako
 
 # waybar
 exec_always --no-startup-id pkill waybar
-exec_always --no-startup-id bash -c 'sleep 0.2 && waybar -c ~/.config/waybar/sway/config.jsonc -s ~/.config/waybar/sway/style.css'
+exec_always --no-startup-id bash -c 'sleep 0.2 && waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css'
 
 # screenshot
 bindsym Print exec swaycut -m output

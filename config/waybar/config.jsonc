@@ -1,0 +1,58 @@
+{
+  "position": "top",
+  "modules-left": ["custom/menu", "sway/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "pulseaudio", "backlight", "custom/power"],
+
+  "sway/workspaces": {
+    "format": "{name}"
+  },
+
+  "custom/menu": {
+    "format": "",
+    "on-click": "rofi -show drun",
+    "tooltip": false
+  },
+
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%a, %d %b}",
+    "tooltip": false
+  },
+
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-linked": " {ifname}",
+    "format-disconnected": "",
+    "tooltip-format-wifi": " {essid} {signalStrength}%",
+    "tooltip-format": " {ifname}",
+    "tooltip-format-disconnected": "offline"
+  },
+
+  "pulseaudio": {
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", "", ""]
+    },
+    "tooltip-format": "{volume}%",
+    "scroll-step": 5
+  },
+
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": ["󰃞", "󰃝", "󰃟", "󰃠"]
+    },
+    "tooltip-format": "{percent}%",
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set $([ $(brightnessctl i -m | cut -d, -f4 | tr -d '%') -gt 5 ] && echo 5%- || echo 5%)"
+  },
+
+  "custom/power": {
+    "format": "",
+    "tooltip": false
+  }
+}
