@@ -6,7 +6,6 @@ let
 
   configs = {
     foot = "foot";
-    sway = "sway";
     waybar = "waybar";
     rofi = "rofi";
     fastfetch = "fastfetch";
@@ -19,6 +18,7 @@ in
 {
   imports = [
     ./modules/zen.nix
+    ./modules/swayfx.nix
   ];
 
   home.username = "shaaanuu";

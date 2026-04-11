@@ -149,7 +149,6 @@ in
       open-webui
     ]))
   ] ++ [
-    unstable.swayfx
     unstable.python3Packages.django_6
   ];
 
