@@ -1,8 +1,8 @@
 * {
-    font-family: 'JetBrainsMono Nerd Font Mono';
-    font-weight: 700;
-    font-size: 9pt;
-    min-height: 0;
+  font-family: "JetBrainsMono Nerd Font Mono";
+  font-weight: 700;
+  font-size: 9pt;
+  min-height: 0;
 }
 
 window#waybar {
@@ -22,30 +22,30 @@ tooltip {
 #custom-power,
 #network,
 #custom-menu {
-    background: #11111b;
-    margin: 4px 4px 0px 4px;
-    padding: 0px 12px;
-    border-radius: 10px;
+  background: #11111b;
+  margin: 4px 4px 0px 4px;
+  padding: 0px 12px;
+  border-radius: 10px;
 }
 
 #workspaces {
-    padding: 0 4px;
+  padding: 0 4px;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    color: transparent;
-    background-color: #1e1e2e;
-    margin: 3px;
-    border-radius: 9px;
-    min-width: 12px;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 0 5px;
+  color: transparent;
+  background-color: #1e1e2e;
+  margin: 3px;
+  border-radius: 9px;
+  min-width: 12px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #workspaces button.focused {
-    color: #0b1117;
-    background-color: #7ab8ff;
-    min-width: 40px;
+  color: #0b1117;
+  background-color: #7ab8ff;
+  min-width: 40px;
 }
 
 #workspaces button.focused:hover {
@@ -54,11 +54,11 @@ tooltip {
 }
 
 #workspaces button.urgent {
-    background-color: #ff4081;
+  background-color: #ff4081;
 }
 
 #workspaces button:hover {
-    background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 #custom-menu {
