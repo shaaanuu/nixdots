@@ -10,7 +10,7 @@ in
   ];
 
   # wallpaper
-  home.file.".config/sway/spiderverse.png".source = ../spiderverse.png;
+  home.file.".config/sway/spiderverse.png".source = ../assets/spiderverse.png;
 
   wayland.windowManager.sway = {
     enable = true;
@@ -63,7 +63,7 @@ in
 
       # wallpaper
       output = {
-        "*".background = "~/Pictures/spiderverse.png fill";
+        "*".background = "~/.config/sway/spiderverse.png fill";
       };
 
       startup = [
