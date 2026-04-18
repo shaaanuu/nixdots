@@ -10,6 +10,7 @@ in
     ./modules/swaycut.nix
     ./modules/postgresql.nix
     ./modules/ollama.nix
+    ./modules/wireguard.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
