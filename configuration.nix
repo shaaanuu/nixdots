@@ -146,7 +146,6 @@ in
     (python3.withPackages (python-pkgs: with python-pkgs; [
       pip
       ffmpeg
-      open-webui
     ]))
   ] ++ [
     unstable.python3Packages.django_6
