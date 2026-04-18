@@ -98,4 +98,7 @@
       '';
     };
   };
+
+  # for whatever dumb reasons, zen wants the configs in ~/.zen/ and nix gives it in ~/.config/zen/
+  home.file.".zen".source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/zen";
 }
