@@ -148,7 +148,7 @@ in
       ffmpeg
     ]))
   ] ++ [
-    unstable.python3Packages.django_6
+    # unstable.pkg_name
   ];
 
   # Thunar
