@@ -86,6 +86,7 @@ in
     };
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
+      upgrade = "sudo nix flake update --flake /etc/nixos";
       clean = "sudo nix-collect-garbage -d";
       shutdown = "sudo shutdown now";
       restart = "sudo reboot now";
