@@ -41,7 +41,7 @@
   '';
 
   systemd.services.pgadmin-seed = {
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = pkgs.lib.mkForce [ ];
     after = [ "pgadmin.service" ];
     requires = [ "pgadmin.service" ];
 
