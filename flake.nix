@@ -23,6 +23,7 @@
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    opencode.url = "github:dominicnunez/opencode-nix";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
