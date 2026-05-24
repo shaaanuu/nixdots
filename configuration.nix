@@ -33,7 +33,13 @@ in
   hardware.bluetooth.enable = true;
   programs.sway.enable = true;
   security.polkit.enable = true;
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-vaapi-driver
+      libvdpau-va-gl
+    ];
+  };
   services = {
     dbus.enable = true;
     udev.enable = true;
@@ -54,6 +60,13 @@ in
     XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE = "20";
     NIXOS_OZONE_WL = "1";
+  };
+
+  # gpu issues
+  environment.variables = {
+    WLR_DIRECT_SCANOUT = "0";
+    MESA_VK_WSI_PRESENT_MODE = "fifo";
+    LIBVA_DRIVER_NAME = "i965";
   };
 
   # greeter
@@ -132,7 +145,6 @@ in
     git
     libimobiledevice
     ifuse
-    mesa
     libglvnd
     nodejs
     yt-dlp
