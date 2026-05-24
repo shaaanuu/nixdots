@@ -19,6 +19,7 @@ in
   imports = [
     ./modules/zen.nix
     ./modules/swayfx.nix
+    ./modules/zed.nix
   ];
 
   home.username = "shaaanuu";
@@ -42,7 +43,6 @@ in
     noto-fonts
     vscodium
     localsend
-    zed-editor
     obsidian
     vlc
     xarchiver

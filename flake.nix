@@ -29,6 +29,7 @@
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
+    unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
   in
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -43,7 +44,7 @@
             useUserPackages = true;
             users.shaaanuu = import ./home.nix;
             backupFileExtension = "backup";
-            extraSpecialArgs = { inherit inputs; };
+            extraSpecialArgs = { inherit inputs; unstable = unstable; };
           };
         }
       ];
