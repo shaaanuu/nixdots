@@ -140,6 +140,18 @@ in
     ];
   };
 
+  # app image issues
+  i18n.defaultLocale = "en_US.UTF-8";
+  programs.appimage.enable = true;
+  programs.appimage.package = pkgs.appimage-run.override {
+    extraPkgs = pkgs: [
+      pkgs.openssl
+      pkgs.cacert
+      pkgs.openal-soft
+      pkgs.xcb-util-cursor
+    ];
+  };
+
   # packages in system profile.
   environment.systemPackages = with pkgs; [
     xdg-user-dirs
