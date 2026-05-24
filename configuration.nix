@@ -169,6 +169,7 @@ in
     cmake
     aria2
     btop
+    proton-authenticator
 
     # python
     (python3.withPackages (python-pkgs: with python-pkgs; [
