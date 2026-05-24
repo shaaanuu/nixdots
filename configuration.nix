@@ -94,7 +94,7 @@ in
   boot.loader.timeout = 0;
   boot.initrd.verbose = false;
   boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "quiet" "udev.log_priority=3" ];
+  boot.kernelParams = [ "quiet" "udev.log_priority=3" "usbcore.autosuspend=-1" ];
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
