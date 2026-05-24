@@ -8,7 +8,6 @@ in
   imports = [
     ./hardware-configuration.nix
     ./modules/swaycut.nix
-    ./modules/postgresql.nix
     ./modules/wireguard.nix
     ./modules/opencode.nix
   ];
