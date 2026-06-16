@@ -78,6 +78,13 @@ snvim /etc/wireguard/proton.key  # paste the key
 
 Custom screenshot tool made by [me](https://github.com/shaaanuu/swaycut). Bindings are `Print`, `Super+Print`, `Super+Shift+Print`.
 
+### `modules/flutter.nix`
+
+Run this once after initial setup, and again any time you modify android package versions in `flutter.nix`.
+
+```bash
+flutter config --android-sdk "$ANDROID_HOME"
+```
 
 ## Aliases
 
@@ -136,7 +143,6 @@ Currently rewriting most of this as possible in nix way into `modules/`.
 - **Intel GPU** specific vars set: `LIBVA_DRIVER_NAME=i965`, `intel-vaapi-driver`, `libvdpau-va-gl`.
 - **auto-cpufreq**: powersave + no turbo on battery, performance + auto turbo on charger.
 - **nix substituters** include SJTU/USTC mirrors (currently for me, this is the fastest and less error showing ones).
-- **[Flutter](https://flutter.dev/)** installed from nixpkgs-unstable. Android SDK paths set in `.zshrc` (manual Android setup needed at `~/dev/android`).
 - **[Bun](https://bun.sh/)** paths set in zsh init (no installation process included).
 - **iOS** support via `usbmuxd` + `ifuse` + `libimobiledevice`.
 

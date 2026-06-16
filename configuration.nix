@@ -10,6 +10,7 @@ in
     ./modules/swaycut.nix
     ./modules/wireguard.nix
     ./modules/opencode.nix
+    ./modules/flutter.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

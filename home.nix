@@ -66,7 +66,7 @@ in
     libsForQt5.qt5ct
 
     # unstable
-    inputs.nixpkgs-unstable.legacyPackages."${pkgs.stdenv.hostPlatform.system}".flutter
+    # inputs.nixpkgs-unstable.legacyPackages."${pkgs.stdenv.hostPlatform.system}".PKGNAME
   ];
 
   # for in ~/.configs/
