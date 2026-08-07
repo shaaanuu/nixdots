@@ -171,6 +171,7 @@ in
     aria2
     btop
     proton-authenticator
+    kdePackages.kdenlive
 
     # python
     (python3.withPackages (python-pkgs: with python-pkgs; [
