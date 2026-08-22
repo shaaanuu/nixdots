@@ -24,6 +24,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     opencode.url = "github:dominicnunez/opencode-nix";
+    nix-photogimp3 = {
+      url = "github:3nol/nix-photogimp3";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -37,6 +41,7 @@
       modules = [
         ./configuration.nix
         ./modules/sddm.nix
+        ./modules/gimp.nix
         home-manager.nixosModules.home-manager
         {
           home-manager = {
