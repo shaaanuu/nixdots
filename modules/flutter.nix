@@ -3,23 +3,44 @@
 let
   cmdlineToolsVer = "19.0";
 
-  android = pkgs.androidenv.composeAndroidPackages {
-    cmdLineToolsVersion = cmdlineToolsVer;
-    platformVersions = [ "27"  "36" ];
-    buildToolsVersions = [ "27.0.3" "35.0.0" ];
-    includeNDK = true;
-    ndkVersions = [ "28.2.13676358" ];
-    cmakeVersions = [ "3.22.1" ];
+  androidenv = pkgs.callPackage "${pkgs.path}/pkgs/development/mobile/androidenv" {
+    licenseAccepted = true;
   };
 
-  android-sdk = pkgs.runCommand "android-sdk-with-latest" { } ''
-    mkdir -p $out
-    ln -s -t $out ${android.androidsdk}/libexec/android-sdk/*
-    rm $out/cmdline-tools
-    mkdir $out/cmdline-tools
-    ln -s -t $out/cmdline-tools ${android.androidsdk}/libexec/android-sdk/cmdline-tools/*
-    ln -sfn ${cmdlineToolsVer} $out/cmdline-tools/latest
-  '';
+  android = androidenv.composeAndroidPackages {
+    cmdLineToolsVersion = cmdlineToolsVer;
+
+    platformVersions = [
+      "27"
+      "36"
+    ];
+
+    buildToolsVersions = [
+      "27.0.3"
+      "35.0.0"
+    ];
+
+    includeNDK = true;
+
+    ndkVersions = [
+      "28.2.13676358"
+    ];
+
+    cmakeVersions = [
+      "3.22.1"
+    ];
+
+    extraLicenses = [
+      "android-sdk-preview-license"
+      "android-googletv-license"
+      "android-sdk-arm-dbt-license"
+      "google-gdk-license"
+      "intel-android-extra-license"
+      "intel-android-sysimage-license"
+      "mips-android-sysimage-license"
+      "android-googlexr-license"
+    ];
+  };
 in
 {
   environment.systemPackages = [
@@ -28,16 +49,7 @@ in
     android.androidsdk
   ];
 
-  nixpkgs.config.android_sdk.accept_license = true;
-
   environment.variables = {
-    # ANDROID_SDK_ROOT = "${android.androidsdk}/libexec/android-sdk";
-    # ANDROID_HOME = "${android.androidsdk}/libexec/android-sdk";
-    ANDROID_SDK_ROOT = "${android-sdk}";
-    ANDROID_HOME = "${android-sdk}";
-  };
-
-  environment.sessionVariables = {
-    PATH = "$ANDROID_HOME/cmdline-tools/latest/bin:$PATH";
+    ANDROID_HOME = "${android.androidsdk}/libexec/android-sdk";
   };
 }

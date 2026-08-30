@@ -10,15 +10,6 @@ zstyle ':omz:update' mode disabled
 # plugins
 plugins=(git)
 
-# flutter, but for android
-export ANDROID=$HOME/dev/android
-export PATH=$ANDROID/latest/cmdline-tools:$PATH
-export PATH=$ANDROID/latest/cmdline-tools/bin:$PATH
-export PATH=$ANDROID/platform-tools:$PATH
-# Android SDK
-export ANDROID_SDK_ROOT=$HOME/dev/android
-export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platform-tools:$PATH
-
 source $ZSH/oh-my-zsh.sh
 
 # bun completions
