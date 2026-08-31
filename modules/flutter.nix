@@ -1,34 +1,22 @@
 { pkgs, ... }:
 
 let
-  cmdlineToolsVer = "19.0";
-
   androidenv = pkgs.callPackage "${pkgs.path}/pkgs/development/mobile/androidenv" {
     licenseAccepted = true;
   };
 
   android = androidenv.composeAndroidPackages {
-    cmdLineToolsVersion = cmdlineToolsVer;
+    cmdLineToolsVersion = "latest";
 
-    platformVersions = [
-      "27"
-      "36"
-    ];
+    platformVersions = [ "33" ];
 
-    buildToolsVersions = [
-      "27.0.3"
-      "35.0.0"
-    ];
+    buildToolsVersions = [ "latest" ];
 
     includeNDK = true;
 
-    ndkVersions = [
-      "28.2.13676358"
-    ];
+    ndkVersions = [ "latest" ];
 
-    cmakeVersions = [
-      "3.22.1"
-    ];
+    cmakeVersions = [ "latest" ];
 
     extraLicenses = [
       "android-sdk-preview-license"
