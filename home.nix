@@ -33,7 +33,7 @@ in
     yazi
     fastfetch
     mako
-    xfce.mousepad
+    mousepad
     feh
     nwg-look
     gcc
@@ -108,6 +108,7 @@ in
   # GTK
   gtk = {
     enable = true;
+    gtk4.theme = config.gtk.theme;
     theme = {
       name = "catppuccin-mocha-blue-standard";
       package = pkgs.catppuccin-gtk.override {
@@ -149,5 +150,6 @@ in
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
+    setSessionVariables = true;
   };
 }
