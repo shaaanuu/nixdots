@@ -10,7 +10,6 @@ let
     rofi = "rofi";
     fastfetch = "fastfetch";
     mako = "mako";
-    nvim = "nvim";
     yazi = "yazi";
   };
 in
@@ -20,6 +19,7 @@ in
     ./modules/zen.nix
     ./modules/swayfx.nix
     ./modules/zed.nix
+    ./modules/nvim.nix
   ];
 
   home.username = "shaaanuu";
@@ -33,7 +33,6 @@ in
     yazi
     fastfetch
     mako
-    neovim
     xfce.mousepad
     feh
     nwg-look
@@ -91,7 +90,6 @@ in
       shutdown = "sudo shutdown now";
       restart = "sudo reboot now";
       reboot = "sudo reboot now";
-      snvim = "sudo -E nvim";
     };
     sessionVariables = {
       ZSH_CUSTOM = "${config.home.homeDirectory}/.local/share/oh-my-zsh/custom";
