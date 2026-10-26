@@ -29,6 +29,7 @@ NixOS config for a minimal SwayFX setup.
 ## Fresh Install
 
 ### Install [NixOS](https://nixos.org/download/#nixos-iso) normally, then clone this dots
+
 ```bash
 git clone https://github.com/shaaanuu/nixdots ~/nixdots
 ```
@@ -41,7 +42,7 @@ sudo ln -s /home/{USER}/nixdots /etc/nixos
 
 change `{USER}` with your username.
 
-### Swap in *your* hardware config
+### Swap in _your_ hardware config
 
 Replace `hardware-configuration.nix` with the one generated during your install (at `/etc/nixos/hardware-configuration.nix` before you symlink).
 
