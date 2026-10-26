@@ -19,7 +19,7 @@ NixOS config for a minimal SwayFX setup.
 | Terminal | [Foot](https://codeberg.org/dnkl/foot) |
 | Notifications | [Mako](https://github.com/emersion/mako) |
 | Editor | [Zed](https://zed.dev/) + [Neovim](https://github.com/neovim/neovim) + [VSCodium](https://github.com/VSCodium/vscodium) |
-| Browser | [Zen Browser](https://zen-browser.app/) |
+| Browser | [Zen Browser](https://zen-browser.app/) (will remove in the future) + [LibreWolf](https://librewolf.net/)|
 | File manager | [Yazi](https://github.com/sxyazi/yazi) + [Thunar](https://gitlab.xfce.org/xfce/thunar) |
 | Shell | [Zsh](https://www.zsh.org/) + [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh) |
 | Login | [SDDM](https://github.com/sddm/sddm/) + [SilentSDDM](https://github.com/uiriansan/SilentSDDM) |
@@ -54,6 +54,16 @@ sudo nixos-rebuild switch --flake /etc/nixos#nixos
 > The `update` alias in zsh does this exact command, so after the first build just run `update`.
 
 ## Modules
+
+### `modules/librewolf.nix`
+
+LibreWolf with:
+
+- Forced installation of [Nook startpage](https://addons.mozilla.org/en-US/firefox/addon/startpage-nook/) (built by [me](https://github.com/shaaanuu/nook)).
+- [DuckDuckGo](https://duckduckgo.com/) as the default search engine.
+- Search shortcuts: `@ddg` / `@duck` for [DuckDuckGo](https://duckduckgo.com/), `@nix` for [NixOS Packages](https://search.nixos.org/packages), and `@w` / `@wiki` for [Wikipedia](https://en.wikipedia.org/).
+- DNS-over-HTTPS via [Quad9](https://quad9.net/) in TRR-only mode.
+- Vertical tabs, smooth-scrolling tweaks, and custom `userChrome.css`.
 
 ### `modules/zen.nix`
 

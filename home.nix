@@ -20,6 +20,7 @@ in
     ./modules/swayfx.nix
     ./modules/zed.nix
     ./modules/nvim.nix
+    ./modules/librewolf.nix
   ];
 
   home.username = "shaaanuu";
