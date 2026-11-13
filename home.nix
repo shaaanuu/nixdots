@@ -16,7 +16,6 @@ in
 
 {
   imports = [
-    ./modules/zen.nix
     ./modules/swayfx.nix
     ./modules/zed.nix
     ./modules/nvim.nix
