@@ -11,6 +11,7 @@ in
     ./modules/wireguard.nix
     ./modules/opencode.nix
     ./modules/flutter.nix
+    ./modules/android.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
