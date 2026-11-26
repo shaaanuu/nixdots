@@ -12,6 +12,7 @@ in
     ./modules/opencode.nix
     # ./modules/flutter.nix
     ./modules/android.nix
+    ./modules/artcraft.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
