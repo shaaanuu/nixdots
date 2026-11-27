@@ -1,45 +1,62 @@
-{ pkgs, config, inputs, ... }:
+{ pkgs, ... }:
 
 let
-  androidPkgs = import inputs.nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
+  cmdlineToolsVer = "19.0";
 
-    config = {
-      allowUnfree = true;
-    };
+  androidenv = pkgs.callPackage "${pkgs.path}/pkgs/development/mobile/androidenv" {
+    licenseAccepted = true;
   };
 
-  androidUser = config.users.users.shaaanuu;
-  androidHome = androidUser.home;
-  androidSdk = "${androidHome}/Android/Sdk";
+  android = androidenv.composeAndroidPackages {
+    cmdLineToolsVersion = cmdlineToolsVer;
 
-  androidStudio = pkgs.symlinkJoin {
-    name = "android-studio-writable-sdk";
-
-    paths = [
-      androidPkgs.android-studio
+    platformVersions = [
+      "36"
+      "37"
     ];
 
-    nativeBuildInputs = [
-      pkgs.makeWrapper
+    buildToolsVersions = [
+      "35.0.0"
+      "36.0.0"
     ];
 
-    postBuild = ''
-      wrapProgram "$out/bin/android-studio" \
-        --set ANDROID_HOME "${androidSdk}" \
-        --unset ANDROID_SDK_ROOT \
-        --unset ANDROID_NDK_ROOT
-    '';
+    includeNDK = true;
+
+    ndkVersions = [
+      "28.2.13676358"
+    ];
+
+    cmakeVersions = [
+      "3.22.1"
+    ];
+
+    extraLicenses = [
+      "android-sdk-preview-license"
+      "android-googletv-license"
+      "android-sdk-arm-dbt-license"
+      "google-gdk-license"
+      "intel-android-extra-license"
+      "intel-android-sysimage-license"
+      "mips-android-sysimage-license"
+      "android-googlexr-license"
+      "microxr-sysimage-license"
+    ];
   };
 
 in
 {
   environment.systemPackages = [
-    androidStudio
+    # Flutter
+    pkgs.flutter
+    pkgs.mesa-demos
+
+    # Android
+    pkgs.jdk17
+    android.androidsdk
   ];
 
-  systemd.tmpfiles.rules = [
-    "d ${androidHome}/Android 0755 shaaanuu ${androidUser.group} - -"
-    "d ${androidSdk} 0755 shaaanuu ${androidUser.group} - -"
-  ];
+  environment.variables = {
+    ANDROID_HOME = "${android.androidsdk}/libexec/android-sdk";
+    ANDROID_SDK_ROOT = "${android.androidsdk}/libexec/android-sdk";
+  };
 }
